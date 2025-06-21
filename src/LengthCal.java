@@ -357,7 +357,7 @@ LENGTH1TF.setText(LENGTH1TF.getText() + "7");
 
         String from = LENGTHCB1.getSelectedItem().toString();
         String to = LENGTHCB2.getSelectedItem().toString();
-        // Kunin ang selected units (galing at pupuntahan)
+        // Kunin ang selected units (from and to)
 
         double meters = 0;
 
