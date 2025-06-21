@@ -187,57 +187,69 @@ DefaultTableModel model;
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        String name = txtName.getText().trim();
-        if (name.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Name cannot be empty.");
-            txtName.requestFocus();
-        } else {
-            txtAge.requestFocus(); // Move to next field
-        }
+        // Kinukuha ang laman ng txtName tapos chine-check kung empty
+    String name = txtName.getText().trim();
+    if (name.isEmpty()) {
+        // Magpapakita ng warning kung walang laman
+        JOptionPane.showMessageDialog(this, "Name cannot be empty.");
+        txtName.requestFocus(); // ibabalik focus sa Name field
+    } else {
+        txtAge.requestFocus(); // kung may laman, lilipat ng focus sa Age
+    }
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
-        txtAddress.requestFocus();
+        // Kapag tinapos i-type ang age, lilipat agad sa Address field
+    txtAddress.requestFocus();
     }//GEN-LAST:event_txtAgeActionPerformed
 
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
-        btnAdd.requestFocus();
+        // Pagkatapos maglagay ng address, lilipat focus sa Add button
+    btnAdd.requestFocus();
     }//GEN-LAST:event_txtAddressActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int selectedRow = jTable1.getSelectedRow();
+        // Kukunin kung anong row ang naka-select sa table
+    int selectedRow = jTable1.getSelectedRow();
     if (selectedRow == -1) {
+        // Kung walang naka-select, magpapakita ng message
         JOptionPane.showMessageDialog(this, "Please select a row to update.");
         return;
     }
 
-        String name = capitalizeWords(txtName.getText());
-        String age = txtAge.getText().trim();
-        String address = capitalizeWords(txtAddress.getText());
+    // Kukunin ang mga bagong value na in-enter ng user
+    String name = capitalizeWords(txtName.getText());
+    String age = txtAge.getText().trim();
+    String address = capitalizeWords(txtAddress.getText());
 
+    // Kung may empty field, magpapakita ng warning
     if (name.isEmpty() || age.isEmpty() || address.isEmpty()) {
         JOptionPane.showMessageDialog(this, "All fields must be filled.");
         return;
     }
 
+    // Ise-set ang bagong value sa selected row
     model.setValueAt(name, selectedRow, 0);
     model.setValueAt(age, selectedRow, 1);
     model.setValueAt(address, selectedRow, 2);
 
+    // Tatanggalin ang pagka-select ng row
     jTable1.clearSelection();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String name = capitalizeWords(txtName.getText());
-        String age = txtAge.getText().trim();
-        String address = capitalizeWords(txtAddress.getText());
+        // Kukunin ang laman ng mga text field
+    String name = capitalizeWords(txtName.getText());
+    String age = txtAge.getText().trim();
+    String address = capitalizeWords(txtAddress.getText());
 
+    // I-check kung may laman lahat
     if (name.isEmpty() || age.isEmpty() || address.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Please fill in all fields.");
         return;
     }
 
-    // 🛡️ Duplicate Check (by Name)
+    // I-check kung may existing name na pareho
     for (int row = 0; row < model.getRowCount(); row++) {
         String existingName = model.getValueAt(row, 0).toString();
         if (existingName.equalsIgnoreCase(name)) {
@@ -246,23 +258,28 @@ DefaultTableModel model;
         }
     }
 
-    // ✅ Add row if no duplicate found
+    // Kung pasado lahat, ia-add sa table
     model.addRow(new Object[]{name, age, address});
+    
+    // Ire-reset ang fields
     txtName.setText("");
     txtAge.setText("");
     txtAddress.setText("");
-    txtName.requestFocus();
+    txtName.requestFocus(); // babalik sa Name field para ready na next input
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int selectedRow = jTable1.getSelectedRow();
+        // Kukunin kung anong row ang naka-select
+    int selectedRow = jTable1.getSelectedRow();
     if (selectedRow == -1) {
+        // Kung walang naka-select, magpapakita ng alert
         JOptionPane.showMessageDialog(this, "Please select a row to delete.");
         return;
     }
 
+    // Tatanggalin yung row sa table
     model.removeRow(selectedRow);
-    jTable1.clearSelection();
+    jTable1.clearSelection(); // I-clear ang selection
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
