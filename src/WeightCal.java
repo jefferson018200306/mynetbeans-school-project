@@ -34,9 +34,9 @@ private void appendToInput(String str) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        from = new javax.swing.JComboBox<>();
         WEIGHT2TF = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        to = new javax.swing.JComboBox<>();
         WEIGHT1TF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -48,17 +48,17 @@ private void appendToInput(String str) {
         jButton6 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        del = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
+        equals = new javax.swing.JButton();
+        decimal = new javax.swing.JButton();
         jButton0 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "KG", "G", "MG" }));
+        from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "KG", "G", "MG" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "KG", "G", "MG" }));
+        to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T", "KG", "G", "MG" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("WEIGHT");
@@ -135,35 +135,35 @@ private void appendToInput(String str) {
             }
         });
 
-        jButton17.setBackground(new java.awt.Color(153, 153, 153));
-        jButton17.setText("⌫");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        del.setBackground(new java.awt.Color(153, 153, 153));
+        del.setText("⌫");
+        del.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                delActionPerformed(evt);
             }
         });
 
-        jButton18.setBackground(new java.awt.Color(153, 153, 153));
-        jButton18.setText("C");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        clear.setBackground(new java.awt.Color(153, 153, 153));
+        clear.setText("C");
+        clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                clearActionPerformed(evt);
             }
         });
 
-        jButton16.setBackground(new java.awt.Color(153, 153, 153));
-        jButton16.setText("=");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        equals.setBackground(new java.awt.Color(153, 153, 153));
+        equals.setText("=");
+        equals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                equalsActionPerformed(evt);
             }
         });
 
-        jButton20.setBackground(new java.awt.Color(153, 153, 153));
-        jButton20.setText(".");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        decimal.setBackground(new java.awt.Color(153, 153, 153));
+        decimal.setText(".");
+        decimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                decimalActionPerformed(evt);
             }
         });
 
@@ -191,9 +191,9 @@ private void appendToInput(String str) {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -221,10 +221,10 @@ private void appendToInput(String str) {
                                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(del, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(equals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -234,11 +234,11 @@ private void appendToInput(String str) {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WEIGHT1TF, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WEIGHT2TF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -258,18 +258,18 @@ private void appendToInput(String str) {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(del, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(equals, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -313,56 +313,63 @@ private void appendToInput(String str) {
         appendToInput("3");
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        String current = WEIGHT1TF.getText();
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
+    String current = WEIGHT1TF.getText(); // Kunin ang kasalukuyang text sa WEIGHT1TF
     if (!current.isEmpty()) {
+        // Kung hindi empty, burahin ang last character
         WEIGHT1TF.setText(current.substring(0, current.length() - 1));
     }
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_delActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-         WEIGHT1TF.setText("");
-         WEIGHT2TF.setText("");
-    }//GEN-LAST:event_jButton18ActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+    WEIGHT1TF.setText(""); // I-clear or burahin ang input sa WEIGHT1TF
+    WEIGHT2TF.setText(""); // I-clear or burahin ang output sa WEIGHT2TF
+    }//GEN-LAST:event_clearActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        appendToInput(".");
-    }//GEN-LAST:event_jButton20ActionPerformed
+    private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
+    appendToInput("."); // Mag-add ng decimal point sa WEIGHT1TF, pero may prevention sa double dot
+    }//GEN-LAST:event_decimalActionPerformed
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
         appendToInput("0");
     }//GEN-LAST:event_jButton0ActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        try {
+    private void equalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsActionPerformed
+    try {
+        // I-parse ang input weight na galing sa text field bilang double
         double input = Double.parseDouble(WEIGHT1TF.getText());
-        String fromUnit = (String) jComboBox1.getSelectedItem();
-        String toUnit = (String) jComboBox2.getSelectedItem();
 
-        // Convert input to grams
+        // Kunin ang source unit (mula sa combo box 'from')
+        String fromUnit = (String) from.getSelectedItem();
+
+        // Kunin ang target unit (mula sa combo box 'to')
+        String toUnit = (String) to.getSelectedItem();
+
+        // I-convert muna ang input papuntang grams
         double grams = switch (fromUnit) {
-            case "T" -> input * 1_000_000;
-            case "KG" -> input * 1_000;
-            case "G" -> input;
-            case "MG" -> input / 1_000;
+            case "T" -> input * 1_000_000;     // Tons to grams
+            case "KG" -> input * 1_000;        // Kilograms to grams
+            case "G" -> input;                 // Grams (no change)
+            case "MG" -> input / 1_000;        // Milligrams to grams
             default -> throw new IllegalArgumentException("Invalid from unit");
         };
 
-        // Convert grams to target unit
+        // I-convert mula grams papuntang target unit
         double result = switch (toUnit) {
-            case "T" -> grams / 1_000_000;
-            case "KG" -> grams / 1_000;
-            case "G" -> grams;
-            case "MG" -> grams * 1_000;
+            case "T" -> grams / 1_000_000;     // Grams to Tons
+            case "KG" -> grams / 1_000;        // Grams to Kilograms
+            case "G" -> grams;                 // Grams (no change)
+            case "MG" -> grams * 1_000;        // Grams to Milligrams
             default -> throw new IllegalArgumentException("Invalid to unit");
         };
 
-        // Output result
+        // I-set ang converted result sa output field na WEIGHT2TF
         WEIGHT2TF.setText(String.format("%.6f", result));
     } catch (NumberFormatException e) {
+        // Kapag invalid ang input (hal. letters or walang laman), maglagay ng error message
         WEIGHT2TF.setText("Invalid input");
     }
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_equalsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,13 +409,14 @@ private void appendToInput(String str) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField WEIGHT1TF;
     private javax.swing.JTextField WEIGHT2TF;
+    private javax.swing.JButton clear;
+    private javax.swing.JButton decimal;
+    private javax.swing.JButton del;
+    private javax.swing.JButton equals;
+    private javax.swing.JComboBox<String> from;
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -416,8 +424,7 @@ private void appendToInput(String str) {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> to;
     // End of variables declaration//GEN-END:variables
 }
