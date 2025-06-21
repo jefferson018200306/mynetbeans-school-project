@@ -345,19 +345,18 @@ Operator = "+";
     }//GEN-LAST:event_ADDActionPerformed
 
     private void SQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SQRActionPerformed
-try {
-        // Get the number from the screen
-        double value = Double.parseDouble(STD1TF.getText());
+        try {
+        double value = Double.parseDouble(STD1TF.getText()); // Kunin ang number mula STD1TF
 
-        // Only do square root for positive numbers
         if (value >= 0) {
-            double result = Math.sqrt(value);
-            STD1TF.setText(Double.toString(result)); // Show the result
+            // if ang value ay greater than or equal to 0
+            double result = Math.sqrt(value); // Kunin ang square root gamit ang Math.sqrt
+            STD1TF.setText(Double.toString(result)); // Ipakita ang result sa STD1TF
         } else {
-            STD1TF.setText("Error"); // Negative number = can't square root
+            STD1TF.setText("Error"); // Kung negative, iset ang STD1TF na "Error"
         }
     } catch (Exception e) {
-        STD1TF.setText("Error"); // If text is not a number
+        STD1TF.setText("Error"); // Kung hindi valid number, iset na lang as "Error"
     }
     }//GEN-LAST:event_SQRActionPerformed
 
@@ -366,10 +365,12 @@ try {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BACKSPACEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BACKSPACEActionPerformed
-            String current = STD1TF.getText();
-if (!current.isEmpty()) {
-    STD1TF.setText(current.substring(0, current.length() - 1));
-}
+            String current = STD1TF.getText(); // Kunin ang kasalukuyang text
+
+    if (!current.isEmpty()) {
+        // Kung may laman, alisin ang last character
+        STD1TF.setText(current.substring(0, current.length() - 1));
+    }
     }//GEN-LAST:event_BACKSPACEActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -401,8 +402,10 @@ if (!current.isEmpty()) {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void DECIMALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DECIMALActionPerformed
-String current = STD1TF.getText();
+        String current = STD1TF.getText(); // Kunin ang kasalukuyang text sa STD1TF
+
     if (!current.contains(".")) {
+        // if wala pang decimal, magdagdag ng "."
         STD1TF.setText(current + ".");
     }
     }//GEN-LAST:event_DECIMALActionPerformed
@@ -432,17 +435,17 @@ EnterNum1 = Double.parseDouble(STD1TF.getText());
     }//GEN-LAST:event_MODULUSActionPerformed
 
     private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
-        STD1TF.setText("");
-    EnterNum1 = 0;
-    EnterNum2 = 0;
-    Result = 0;
-    Operator = "";
+        STD1TF.setText(""); // I-clear ang display
+    EnterNum1 = 0; // I-reset ang first number
+    EnterNum2 = 0; // I-reset ang second number
+    Result = 0;    // I-reset ang result
+    Operator = ""; // I-clear ang operator
     }//GEN-LAST:event_CLEARActionPerformed
 
     private void EQUALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EQUALActionPerformed
-performPreviousOperation();
-    STD1TF.setText(Double.toString(EnterNum1));
-    Operator = "";
+        performPreviousOperation(); // I-execute ang operation gamit ang current operator at numbers
+    STD1TF.setText(Double.toString(EnterNum1)); // Ipakita ang result sa STD1TF
+    Operator = ""; // I-clear ang operator
     }//GEN-LAST:event_EQUALActionPerformed
 
     private void performPreviousOperation() {
