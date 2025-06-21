@@ -30,16 +30,16 @@ private void appendToTemp1(String value) {
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        from = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         TEMP2TF = new javax.swing.JTextField();
-        jButton20 = new javax.swing.JButton();
+        decimal = new javax.swing.JButton();
         jButton0 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
+        to = new javax.swing.JComboBox<>();
+        del = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         TEMP1TF = new javax.swing.JTextField();
-        jButton16 = new javax.swing.JButton();
+        equals = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -73,10 +73,10 @@ private void appendToTemp1(String value) {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C", "F", "K" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C", "F", "K" }));
+        from.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                fromActionPerformed(evt);
             }
         });
 
@@ -88,11 +88,11 @@ private void appendToTemp1(String value) {
             }
         });
 
-        jButton20.setBackground(new java.awt.Color(204, 204, 204));
-        jButton20.setText(".");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        decimal.setBackground(new java.awt.Color(204, 204, 204));
+        decimal.setText(".");
+        decimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                decimalActionPerformed(evt);
             }
         });
 
@@ -104,29 +104,29 @@ private void appendToTemp1(String value) {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C", "F", "K" }));
+        to.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C", "F", "K" }));
 
-        jButton17.setBackground(new java.awt.Color(204, 204, 204));
-        jButton17.setText("⌫");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        del.setBackground(new java.awt.Color(204, 204, 204));
+        del.setText("⌫");
+        del.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                delActionPerformed(evt);
             }
         });
 
-        jButton18.setBackground(new java.awt.Color(204, 204, 204));
-        jButton18.setText("C");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        clear.setBackground(new java.awt.Color(204, 204, 204));
+        clear.setText("C");
+        clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                clearActionPerformed(evt);
             }
         });
 
-        jButton16.setBackground(new java.awt.Color(204, 204, 204));
-        jButton16.setText("=");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        equals.setBackground(new java.awt.Color(204, 204, 204));
+        equals.setText("=");
+        equals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                equalsActionPerformed(evt);
             }
         });
 
@@ -189,9 +189,9 @@ private void appendToTemp1(String value) {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -219,10 +219,10 @@ private void appendToTemp1(String value) {
                                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(del, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(equals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -232,11 +232,11 @@ private void appendToTemp1(String value) {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TEMP1TF, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TEMP2TF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,18 +256,18 @@ private void appendToTemp1(String value) {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(del, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(equals, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -291,28 +291,28 @@ private void appendToTemp1(String value) {
         appendToTemp1("2");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
         String currentText = TEMP1TF.getText();
     if (!currentText.contains(".")) {
         TEMP1TF.setText(currentText + ".");
     }
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_decimalActionPerformed
 
     private void jButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton0ActionPerformed
         appendToTemp1("0");
     }//GEN-LAST:event_jButton0ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
         String current = TEMP1TF.getText();
     if (!current.isEmpty()) {
         TEMP1TF.setText(current.substring(0, current.length() - 1));
     }
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_delActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         TEMP1TF.setText("");
         TEMP2TF.setText("");
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_clearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         appendToTemp1("4");
@@ -334,15 +334,15 @@ private void appendToTemp1(String value) {
         appendToTemp1("9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void fromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_fromActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void equalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsActionPerformed
         try {
         double input = Double.parseDouble(TEMP1TF.getText());
-        String fromUnit = jComboBox1.getSelectedItem().toString();
-        String toUnit = jComboBox2.getSelectedItem().toString();
+        String fromUnit = from.getSelectedItem().toString();
+        String toUnit = to.getSelectedItem().toString();
         double result = 0.0;
 
         if (fromUnit.equals(toUnit)) {
@@ -365,7 +365,7 @@ private void appendToTemp1(String value) {
     } catch (NumberFormatException e) {
         TEMP2TF.setText("Invalid Input");
     }
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_equalsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,13 +405,14 @@ private void appendToTemp1(String value) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TEMP1TF;
     private javax.swing.JTextField TEMP2TF;
+    private javax.swing.JButton clear;
+    private javax.swing.JButton decimal;
+    private javax.swing.JButton del;
+    private javax.swing.JButton equals;
+    private javax.swing.JComboBox<String> from;
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -419,8 +420,7 @@ private void appendToTemp1(String value) {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> to;
     // End of variables declaration//GEN-END:variables
 }
