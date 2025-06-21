@@ -292,9 +292,9 @@ private void appendToTemp1(String value) {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
-        String currentText = TEMP1TF.getText();
-    if (!currentText.contains(".")) {
-        TEMP1TF.setText(currentText + ".");
+    String currentText = TEMP1TF.getText(); // Kuhanin ang kasalukuyang text sa TEMP1TF
+    if (!currentText.contains(".")) { // Kung wala pang decimal point
+        TEMP1TF.setText(currentText + "."); // Idagdag ang "."
     }
     }//GEN-LAST:event_decimalActionPerformed
 
@@ -303,15 +303,15 @@ private void appendToTemp1(String value) {
     }//GEN-LAST:event_jButton0ActionPerformed
 
     private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
-        String current = TEMP1TF.getText();
-    if (!current.isEmpty()) {
-        TEMP1TF.setText(current.substring(0, current.length() - 1));
+    String current = TEMP1TF.getText(); // Kuhanin ang kasalukuyang value sa TEMP1TF
+    if (!current.isEmpty()) { // Kung hindi empty ang field
+        TEMP1TF.setText(current.substring(0, current.length() - 1)); // Alisin ang huling character
     }
     }//GEN-LAST:event_delActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        TEMP1TF.setText("");
-        TEMP2TF.setText("");
+    TEMP1TF.setText(""); // I-clear ang input field TEMP1TF
+    TEMP2TF.setText(""); // I-clear rin ang output field TEMP2TF
     }//GEN-LAST:event_clearActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -339,31 +339,33 @@ private void appendToTemp1(String value) {
     }//GEN-LAST:event_fromActionPerformed
 
     private void equalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsActionPerformed
-        try {
-        double input = Double.parseDouble(TEMP1TF.getText());
-        String fromUnit = from.getSelectedItem().toString();
-        String toUnit = to.getSelectedItem().toString();
-        double result = 0.0;
+    try {
+        double input = Double.parseDouble(TEMP1TF.getText()); // Kunin ang number na in-input
+        String fromUnit = from.getSelectedItem().toString(); // Kunin ang selected "from" unit
+        String toUnit = to.getSelectedItem().toString(); // Kunin ang selected "to" unit
+        double result = 0.0; // Variable para sa result
 
+        // Conversion logic — depende sa napiling units
         if (fromUnit.equals(toUnit)) {
-            result = input; // No conversion needed
+            result = input; // Parehas ang unit, walang conversion
         } else if (fromUnit.equals("C") && toUnit.equals("F")) {
-            result = input * 9 / 5 + 32;
+            result = input * 9 / 5 + 32; // Celsius to Fahrenheit
         } else if (fromUnit.equals("C") && toUnit.equals("K")) {
-            result = input + 273.15;
+            result = input + 273.15; // Celsius to Kelvin
         } else if (fromUnit.equals("F") && toUnit.equals("C")) {
-            result = (input - 32) * 5 / 9;
+            result = (input - 32) * 5 / 9; // Fahrenheit to Celsius
         } else if (fromUnit.equals("F") && toUnit.equals("K")) {
-            result = (input - 32) * 5 / 9 + 273.15;
+            result = (input - 32) * 5 / 9 + 273.15; // Fahrenheit to Kelvin
         } else if (fromUnit.equals("K") && toUnit.equals("C")) {
-            result = input - 273.15;
+            result = input - 273.15; // Kelvin to Celsius
         } else if (fromUnit.equals("K") && toUnit.equals("F")) {
-            result = (input - 273.15) * 9 / 5 + 32;
+            result = (input - 273.15) * 9 / 5 + 32; // Kelvin to Fahrenheit
         }
 
+        // I-display ang result sa TEMP2TF with 2 decimal places
         TEMP2TF.setText(String.format("%.2f", result));
     } catch (NumberFormatException e) {
-        TEMP2TF.setText("Invalid Input");
+        TEMP2TF.setText("Invalid Input"); // I-handle kung hindi valid ang input
     }
     }//GEN-LAST:event_equalsActionPerformed
 
