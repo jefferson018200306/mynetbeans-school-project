@@ -292,16 +292,21 @@ LENGTH1TF.setText(LENGTH1TF.getText() + "9");
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-String current = LENGTH1TF.getText();
-if (!current.isEmpty()) {
-    LENGTH1TF.setText(current.substring(0, current.length() - 1));
-}
-    }//GEN-LAST:event_jButton17ActionPerformed
+    String current = LENGTH1TF.getText(); 
+    // Kunin ang current na laman ng text field
+
+    if (!current.isEmpty()) {
+        LENGTH1TF.setText(current.substring(0, current.length() - 1));
+        // Kung hindi empty, alisin ang last character (backspace effect)
+    }
+}//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-LENGTH1TF.setText("");
-LENGTH2TF.setText("");
-    }//GEN-LAST:event_jButton18ActionPerformed
+    LENGTH1TF.setText(""); 
+    LENGTH2TF.setText("");
+    // Linisin ang parehong input at output fields
+}//GEN-LAST:event_jButton18ActionPerformed
+
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 LENGTH1TF.setText(LENGTH1TF.getText() + "5");
@@ -336,38 +341,51 @@ LENGTH1TF.setText(LENGTH1TF.getText() + "7");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-LENGTH1TF.setText(LENGTH1TF.getText() + ".");
-    }//GEN-LAST:event_jButton20ActionPerformed
+    LENGTH1TF.setText(LENGTH1TF.getText() + "."); 
+    // Maglagay ng decimal point sa input
+}//GEN-LAST:event_jButton20ActionPerformed
+
 
     private void LENGTH1TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LENGTH1TFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LENGTH1TFActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-try {
+    try {
         double input = Double.parseDouble(LENGTH1TF.getText());
+        // I-convert yung string sa number (double)
+
         String from = LENGTHCB1.getSelectedItem().toString();
         String to = LENGTHCB2.getSelectedItem().toString();
+        // Kunin ang selected units (galing at pupuntahan)
 
         double meters = 0;
+
+        // Step 1: Convert input to meters
         if (from.equals("KM")) meters = input * 1000;
         else if (from.equals("M")) meters = input;
         else if (from.equals("CM")) meters = input / 100;
         else if (from.equals("MM")) meters = input / 1000;
 
         double result = 0;
+
+        // Step 2: Convert from meters to target unit
         if (to.equals("KM")) result = meters / 1000;
         else if (to.equals("M")) result = meters;
         else if (to.equals("CM")) result = meters * 100;
         else if (to.equals("MM")) result = meters * 1000;
 
-        // Format to avoid scientific notation
         DecimalFormat df = new DecimalFormat("#.######");
+        // Format para hindi lumabas na scientific notation
+
         LENGTH2TF.setText(df.format(result));
+        // Ipakita sa output field yung result
     } catch (NumberFormatException e) {
         LENGTH2TF.setText("Invalid input");
+        // Kung hindi valid yung number (e.g. letters), ipakita error
     }
-    }//GEN-LAST:event_jButton16ActionPerformed
+}//GEN-LAST:event_jButton16ActionPerformed
+
 
     /**
      * @param args the command line arguments
