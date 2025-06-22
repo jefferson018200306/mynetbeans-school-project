@@ -6,6 +6,7 @@ import java.util.*;
 import java.time.*;
 import java.time.format.*;
 import javax.swing.*;
+import java.awt.Font;
 
 /**
  *
@@ -31,81 +32,91 @@ public class Att extends javax.swing.JFrame {
     // headerPrinted — true kapag na-print na ang petsa sa log (once lang dapat)
 
     private void handleCheckIn() {
-        String inputName = txtName.getText().trim();
-        // Kunin ang text sa txtName at tanggalin ang extra spaces.
+    String inputName = txtName.getText().trim();
+    // Kunin ang text sa txtName at tanggalin ang extra spaces.
 
-        if (inputName.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter a name.");
-            // Ipakita ang message box kung walang laman si inputName.
-            return;
-            // I-exit ang function kung walang laman si inputName.
-        }
-
-        String matchedName = null;
-        // Placeholder para sa matched na name sa allNames.
-
-        for (String n : allNames) {
-            if (n.equalsIgnoreCase(inputName)) {
-                matchedName = n;
-                // Kung match si inputName kay n (kahit magkaiba case), iset si matchedName.
-                break;
-            }
-        }
-
-        if (matchedName == null) {
-            JOptionPane.showMessageDialog(this, "Name not recognized.");
-            // Kung wala talagang match, ipakita na unknown si inputName.
-            return;
-            // Tigil agad kasi invalid yung name.
-        }
-
-        if (!headerPrinted) {
-            LocalDate todayDate = LocalDate.now();
-            // Kuhanin ang current date gamit si LocalDate.
-
-            String day = todayDate.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-            String month = todayDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
-            int dayOfMonth = todayDate.getDayOfMonth();
-            // I-format ang petsa para ipakita mamaya sa txtLog.
-
-            txtLog.append("📅 " + day + " " + month + " " + dayOfMonth + "\n");
-            // I-append sa txtLog ang petsa bilang header.
-            headerPrinted = true;
-            // Iset si headerPrinted bilang true para di na ulitin.
-        }
-
-        LocalTime now = LocalTime.now().withNano(0);
-        // Kuhanin ang current time at alisin ang nano part para mas malinis.
-
-        String timeStr = now.format(DateTimeFormatter.ofPattern("hh:mm a"));
-        // I-format ang now sa 12-hour format na string para sa log.
-
-        String symbol;
-        if (!presentList.contains(matchedName)) {
-            presentList.add(matchedName);
-            // Kung wala pa si matchedName sa presentList, idagdag siya.
-
-            if (classTime != null && now.isAfter(classTime.plusMinutes(5))) {
-                symbol = "❗";
-                // Kung may classTime at lagpas 5 minutes si now, late na — gamitin ang "❗".
-            } else {
-                symbol = "✔";
-                // On time pumasok — gamitin ang "✔".
-            }
-
-            txtLog.append(symbol + " " + matchedName + " | " + timeStr + "\n");
-            // Ipakita si matchedName, symbol, at oras sa txtLog.
-        } else {
-            txtLog.append(matchedName + " already checked in.\n");
-            // Kung nasa presentList na si matchedName, sabihin na naka-check-in na siya.
-        }
-
-        txtName.setText("");
-        // I-clear ang laman ng txtName.
-
-        txtName.requestFocusInWindow();
-        // Ibalik ang focus sa txtName para ready na ulit.
+    if (inputName.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please enter a name.");
+        // Ipakita ang message box kung walang laman si inputName.
+        return;
+        // I-exit ang function kung walang laman si inputName.
     }
+
+    String matchedName = null;
+    // Placeholder para sa matched na name sa allNames.
+
+    for (String n : allNames) {
+        if (n.equalsIgnoreCase(inputName)) {
+            matchedName = n;
+            // Kung match si inputName kay n (kahit magkaiba case), iset si matchedName.
+            break;
+        }
+    }
+
+    if (matchedName == null) {
+        JOptionPane.showMessageDialog(this, "Name not recognized.");
+        // Kung wala talagang match, ipakita na unknown si inputName.
+        return;
+        // Tigil agad kasi invalid yung name.
+    }
+
+    if (!headerPrinted) {
+        LocalDate todayDate = LocalDate.now();
+        // Kuhanin ang current date gamit si LocalDate.
+
+        String day = todayDate.getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+        String month = todayDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+        int dayOfMonth = todayDate.getDayOfMonth();
+        // I-format ang petsa para ipakita mamaya sa txtLog.
+
+        txtLog.append("📅 " + day + " " + month + " " + dayOfMonth + "\n");
+        // I-append sa txtLog ang petsa bilang header.
+        headerPrinted = true;
+        // Iset si headerPrinted bilang true para di na ulitin.
+    }
+
+    LocalTime now = LocalTime.now().withNano(0);
+    // Kuhanin ang current time at alisin ang nano part para mas malinis.
+
+    String timeStr = now.format(DateTimeFormatter.ofPattern("hh:mm a"));
+    // I-format ang now sa 12-hour format na string para sa log.
+
+    String symbol;
+    if (!presentList.contains(matchedName)) {
+        presentList.add(matchedName);
+        // Kung wala pa si matchedName sa presentList, idagdag siya.
+
+        if (classTime != null && now.isAfter(classTime.plusMinutes(5))) {
+            symbol = "❗";
+            // Kung may classTime at lagpas 5 minutes si now, late na — gamitin ang "❗".
+        } else {
+            symbol = "✔";
+            // On time pumasok — gamitin ang "✔".
+        }
+
+        txtLog.append(symbol + " " + matchedName + " | " + timeStr + "\n");
+        // Ipakita si matchedName, symbol, at oras sa txtLog.
+    } else {
+        txtLog.append(matchedName + " already checked in.\n");
+        // Kung nasa presentList na si matchedName, sabihin na naka-check-in na siya.
+    }
+
+    txtName.setText("");
+    // I-clear ang laman ng txtName.
+
+    txtName.requestFocusInWindow();
+    // Ibalik ang focus sa txtName para ready na ulit.
+    
+    // Gawing monospaced ang font para mukhang terminal/program log
+    txtLog.setFont(new Font("Monospaced", Font.PLAIN, 13));
+
+    // I-off ang word wrap para hindi hati-hati ang lines — cleaner log format
+    txtLog.setLineWrap(false);
+
+    // Optional: gawin read-only kung hindi naman kailangang i-edit ng user
+    txtLog.setEditable(false);
+}
+    
 
     /**
      * Creates new form Att
@@ -132,6 +143,7 @@ public class Att extends javax.swing.JFrame {
         txtLog = new javax.swing.JTextArea();
         txtClassTime = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,6 +157,7 @@ public class Att extends javax.swing.JFrame {
             }
         });
 
+        btnCheckin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCheckin.setText("Check In");
         btnCheckin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +165,7 @@ public class Att extends javax.swing.JFrame {
             }
         });
 
+        btnClose.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnClose.setText("Finalize");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +187,9 @@ public class Att extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Class Time");
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Attendance Log:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,39 +201,43 @@ public class Att extends javax.swing.JFrame {
                         .addComponent(btnClose))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(jScrollPane2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(btnCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtClassTime, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtClassTime, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(39, 39, 39)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 159, Short.MAX_VALUE)))
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtClassTime, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClassTime))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnClose)
@@ -353,6 +374,7 @@ public class Att extends javax.swing.JFrame {
     private javax.swing.JButton btnClose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtClassTime;
     private javax.swing.JTextArea txtLog;
